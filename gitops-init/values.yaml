@@ -1,16 +1,16 @@
 applications:
-  - application_name: test-1
-    namespace: test-1
-    project_name: test-1
-    path: /dev/test-1
-  - application_name: test-2
-    namespace: test-2
-    project_name: test-2
-    path: /dev/test-3
-  - application_name: test-3
-    namespace: test-3
-    project_name: test-3
-    path: /dev/test-3
+  - application_name: application-demo
+    namespace: demo-app
+    project_name: application-config
+    path: /dev/demo-app-chart
+  - application_name: local-storage-application
+    namespace: openshift-local-storage
+    project_name: gitops-cluster-config
+    path: /dev/local-storage-operator-chart
+  - application_name: odf-application
+    namespace: openshift-storage
+    project_name: gitops-cluster-config
+    path: dev/odf-install-chart
 app_group_param:
   gitops-cluster-config:
     project_name: gitops-cluster-config
