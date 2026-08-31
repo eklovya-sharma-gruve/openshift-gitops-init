@@ -1,0 +1,24 @@
+{{- range $app_group_key, $instances := .Values.app_group_param }}
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: {{ $app_group_key }}
+  namespace: openshift-gitops
+spec:
+  sourceRepos:
+    - 'https://github.com/eklovya-sharma-gruve/openshift-cluster-setup.git'
+  destinations:
+    {{- range $instances.namespace }}
+    - namespace: {{ . }}
+      server: https://kubernetes.default.svc
+    {{- end }}
+  clusterResourceWhitelist:
+    - group: ''
+      kind: Namespace
+  namespaceResourceWhitelist:
+    {{- range $instances.apiObject }}
+    - group: {{ .rg_name }}
+      kind: {{ .rg_kind }}
+    {{- end }}
+---
+{{- end }}

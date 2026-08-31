@@ -1,0 +1,25 @@
+{{- range .Values.applications }}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{ .application_name }}
+  namespace: openshift-gitops
+spec:
+  project: {{ .project_name }}
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: {{ .namespace }}
+  revisionHistoryLimit: 10
+  source:
+    repoURL: "https://github.com/eklovya-sharma-gruve/openshift-cluster-setup.git"
+    targetRevision: HEAD
+    path: {{ .path }}
+  syncOptions:
+    retry:
+      backoff:
+        factor: 5
+        maxDuration: "100s"
+        duration: "30s"
+      limit: 3
+---
+{{- end }}

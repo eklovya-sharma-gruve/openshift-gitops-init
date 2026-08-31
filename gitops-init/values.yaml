@@ -1,0 +1,42 @@
+applications:
+  - application_name: test-1
+    namespace: test-1
+    project_name: test-1
+    path: /dev/test-1
+  - application_name: test-2
+    namespace: test-2
+    project_name: test-2
+    path: /dev/test-3
+  - application_name: test-3
+    namespace: test-3
+    project_name: test-3
+    path: /dev/test-3
+app_group_param:
+  gitops-cluster-config:
+    project_name: gitops-cluster-config
+    namespace:
+      - openshift-local-storage
+      - openshift-storage
+      - openshift-logging
+      - openshift-operators-redhat
+    apiObject:
+      - rg_name: operators.coreos.com
+        rg_kind: OperatorGroup
+      - rg_name: operators.coreos.com
+        rg_kind: Subscription
+      - rg_name: local.storage.openshift.io
+        rg_kind: LocalVolume
+      - rg_name: ocs.openshift.io
+        rg_kind: StorageCluster
+      - rg_name: objectbucket.io
+        rg_kind: ObjectBucketClaim
+      - rg_name: loki.grafana.com
+        rg_kind: LokiStack
+  application-config:
+    project_name: gitops-cluster-config
+    namespace:
+      - demo-app
+    apiObject:
+      - rg_name: apps
+        rg_kind: Deployment
+
