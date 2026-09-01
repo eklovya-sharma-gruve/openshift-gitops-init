@@ -1,0 +1,16 @@
+applications:
+  - application_name: gitops-first-instance
+    namespace: openshift-gitops
+    project_name: gitops-init
+    path: gitops-init/
+app_group_param:
+  gitops-cluster-config:
+    project_name: gitops-init
+    namespace:
+      - openshift-gitops
+    apiObject:
+      - rg_name: argoproj.io
+        rg_kind: Application
+      - rg_name: argoproj.io
+        rg_kind: AppProject
+

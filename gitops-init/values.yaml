@@ -2,15 +2,15 @@ applications:
   - application_name: application-demo
     namespace: demo-app
     project_name: application-config
-    path: /dev/demo-app-chart
+    path: /dev/gitops-operator-install-chart
   - application_name: local-storage-application
     namespace: openshift-local-storage
     project_name: gitops-cluster-config
-    path: /dev/local-storage-operator-chart
+    path: /dev/gitops-operator-install-chart
   - application_name: odf-application
     namespace: openshift-storage
     project_name: gitops-cluster-config
-    path: dev/odf-install-chart
+    path: dev/gitops-operator-install-chart
 app_group_param:
   gitops-cluster-config:
     project_name: gitops-cluster-config
