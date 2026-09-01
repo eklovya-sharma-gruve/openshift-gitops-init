@@ -1,17 +1,22 @@
 repoURL: "https://github.com/eklovya-sharma-gruve/openshift-cluster-setup.git"
 applications:
-  - application_name: application-demo
-    namespace: demo-app
-    project_name: application-config
-    path: dev/gitops-operator-install-chart
   - application_name: local-storage-application
     namespace: openshift-local-storage
     project_name: gitops-cluster-config
-    path: dev/gitops-operator-install-chart
+    path: dev/gitops-operator-install-charts/local-storage-operator-chart
   - application_name: odf-application
     namespace: openshift-storage
     project_name: gitops-cluster-config
-    path: dev/gitops-operator-install-chart
+    path: dev/gitops-operator-install-charts/odf-operator-chart
+  - application_name: openshift-logging-application
+    namespace: openshift-logging
+    project_name: gitops-cluster-config
+    path: dev/gitops-operator-install-charts/logging-operator-chart
+  - application_name: loki-application
+    namespace: openshift-operators-redhat
+    project_name: gitops-cluster-config
+    path: dev/gitops-operator-install-charts/loki-operator-chart
+
 app_group_param:
   gitops-cluster-config:
     project_name: gitops-cluster-config
