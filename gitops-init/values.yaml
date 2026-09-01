@@ -3,11 +3,11 @@ applications:
   - application_name: application-demo
     namespace: demo-app
     project_name: application-config
-    path: /dev/gitops-operator-install-chart
+    path: dev/gitops-operator-install-chart
   - application_name: local-storage-application
     namespace: openshift-local-storage
     project_name: gitops-cluster-config
-    path: /dev/gitops-operator-install-chart
+    path: dev/gitops-operator-install-chart
   - application_name: odf-application
     namespace: openshift-storage
     project_name: gitops-cluster-config
