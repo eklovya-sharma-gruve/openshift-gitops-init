@@ -11,7 +11,7 @@ spec:
     namespace: {{ .namespace }}
   revisionHistoryLimit: 10
   source:
-    repoURL: "https://github.com/eklovya-sharma-gruve/openshift-cluster-setup.git"
+    repoURL: {{ $.Values.repoURL | quote }}
     targetRevision: HEAD
     path: {{ .path }}
   syncOptions:

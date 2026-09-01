@@ -6,7 +6,7 @@ metadata:
   namespace: openshift-gitops
 spec:
   sourceRepos:
-    - 'https://github.com/eklovya-sharma-gruve/openshift-cluster-setup.git'
+    - {{ $.Values.repoURL | quote }}
   destinations:
     {{- range $instances.namespace }}
     - namespace: {{ . }}

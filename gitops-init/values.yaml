@@ -1,3 +1,4 @@
+repoURL: "https://github.com/eklovya-sharma-gruve/openshift-cluster-setup.git"
 applications:
   - application_name: application-demo
     namespace: demo-app
