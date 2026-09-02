@@ -10,7 +10,10 @@ app_group_param:
       - openshift-storage
       - openshift-logging
       - openshift-operators-redhat
-    apiObject:
+    cs_apiObject:
+      - rg_name: ''
+        rg_kind: Namespace
+    ns_apiObject:
       - rg_name: operators.coreos.com
         rg_kind: OperatorGroup
       - rg_name: operators.coreos.com
@@ -27,7 +30,7 @@ app_group_param:
     project_name: cluster-networking-config-group
     namespace:
       - cilium
-    apiObject:
+    cs_apiObject:
       - rg_name: cilium.io
         rg_kind: CiliumConfig
 
@@ -57,4 +60,5 @@ applications:
     namespace: cilium
     project_name: cluster-networking-config-group
     path: dev/gitops-operator-install-chart/cilium-chart
+
 

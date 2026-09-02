@@ -13,10 +13,12 @@ spec:
       server: https://kubernetes.default.svc
     {{- end }}
   clusterResourceWhitelist:
-    - group: ''
-      kind: Namespace
+    {{- range $instances.cs_apiObject }}
+    - group: {{ .rg_name }}
+      kind: {{ .rg_kind }}
+    {{- end }}
   namespaceResourceWhitelist:
-    {{- range $instances.apiObject }}
+    {{- range $instances.ns_apiObject }}
     - group: {{ .rg_name }}
       kind: {{ .rg_kind }}
     {{- end }}
