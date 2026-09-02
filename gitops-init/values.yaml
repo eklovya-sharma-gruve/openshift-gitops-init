@@ -1,22 +1,7 @@
 repoURL: "https://github.com/eklovya-sharma-gruve/openshift-cluster-setup.git"
-applications:
-  - application_name: local-storage-application
-    namespace: openshift-local-storage
-    project_name: gitops-cluster-config
-    path: dev/gitops-operator-install-chart/local-storage-operator-chart
-  - application_name: odf-application
-    namespace: openshift-storage
-    project_name: gitops-cluster-config
-    path: dev/gitops-operator-install-chart/odf-operator-chart
-  - application_name: openshift-logging-application
-    namespace: openshift-logging
-    project_name: gitops-cluster-config
-    path: dev/gitops-operator-install-chart/logging-operator-chart
-  - application_name: loki-application
-    namespace: openshift-operators-redhat
-    project_name: gitops-cluster-config
-    path: dev/gitops-operator-install-chart/loki-operator-chart
 
+#### this is variablization done for the templates of app-group.yaml, 
+#### for creating new app-project resources follow the below standard of putting variable values.
 app_group_param:
   gitops-cluster-config:
     project_name: gitops-cluster-config
@@ -38,11 +23,38 @@ app_group_param:
         rg_kind: ObjectBucketClaim
       - rg_name: loki.grafana.com
         rg_kind: LokiStack
-  application-config:
-    project_name: gitops-cluster-config
+  cluster-networking-config-group:
+    project_name: cluster-networking-config-group
     namespace:
-      - demo-app
+      - cilium
     apiObject:
-      - rg_name: apps
-        rg_kind: Deployment
+      - rg_name: cilium.io
+        rg_kind: CiliumConfig
+
+### Below configuration is to create Application CR for argoCD, For ArgoCD to manage cluster resource of any scope
+### We need to create Application CR which needs information about application name, project name, and 
+### namespace as well as kuberentes cluster where it will manage the resource and Git source of truth which it will 
+### use as source of truth, application-name and project-name are purely ArgoCD gitops terminology and is used by ArgoCD only
+### for managing resources under it, Do not map them with application name or namespace of openshift.
+applications:
+  - application_name: local-storage-application
+    namespace: openshift-local-storage
+    project_name: gitops-cluster-config
+    path: dev/gitops-operator-install-chart/local-storage-operator-chart
+  - application_name: odf-application
+    namespace: openshift-storage
+    project_name: gitops-cluster-config
+    path: dev/gitops-operator-install-chart/odf-operator-chart
+  - application_name: openshift-logging-application
+    namespace: openshift-logging
+    project_name: gitops-cluster-config
+    path: dev/gitops-operator-install-chart/logging-operator-chart
+  - application_name: loki-application
+    namespace: openshift-operators-redhat
+    project_name: gitops-cluster-config
+    path: dev/gitops-operator-install-chart/loki-operator-chart
+  - application_name: cluster-network-application
+    namespace: cilium
+    project_name: cluster-networking-config-group
+    path: dev/gitops-operator-install-chart/cilium-chart
 
