@@ -14,7 +14,7 @@ spec:
     {{- end }}
   clusterResourceWhitelist:
     {{- range $instances.cs_apiObject }}
-    - group: {{ .rg_name }}
+    - group: {{ .rg_name | quote }}
       kind: {{ .rg_kind }}
     {{- end }}
   namespaceResourceWhitelist:
