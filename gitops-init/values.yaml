@@ -11,7 +11,7 @@ app_group_param:
       - openshift-logging
       - openshift-operators-redhat
     cs_apiObject:
-      - rg_name: ''
+      - rg_name: ""
         rg_kind: Namespace
     ns_apiObject:
       - rg_name: operators.coreos.com
