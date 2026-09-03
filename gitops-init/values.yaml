@@ -25,6 +25,7 @@ app_group_param:
     namespace:
       - openshift-logging
       - openshift-operators-redhat
+      - openshift-cluster-observability-operator
     cs_apiObject:
       - rg_name: ""
         rg_kind: Namespace
@@ -71,5 +72,9 @@ applications:
     namespace: cilium
     project_name: cluster-networking-config-group
     path: dev/gitops-operator-install-chart/cilium-chart
+  - application_name: cluster-observability-application
+    namespace: openshift-cluster-observability-operator
+    project_name: cluster-reliability-config
+    path: dev/gitops-operator-install-chart/cluster-observability-operator-chart
 
 
