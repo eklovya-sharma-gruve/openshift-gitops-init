@@ -19,7 +19,7 @@ spec:
     {{- end }}
   namespaceResourceWhitelist:
     {{- range $instances.ns_apiObject }}
-    - group: {{ .rg_name }}
+    - group: {{ .rg_name | quote }}
       kind: {{ .rg_kind }}
     {{- end }}
 ---
