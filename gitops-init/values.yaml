@@ -38,6 +38,8 @@ app_group_param:
         rg_kind: ObjectBucketClaim
       - rg_name: loki.grafana.com
         rg_kind: LokiStack
+      - rg_name: ""
+        rg_kind: ConfigMap
   cluster-networking-config-group:
     project_name: cluster-networking-config-group
     namespace:
@@ -76,5 +78,9 @@ applications:
     namespace: openshift-cluster-observability-operator
     project_name: cluster-reliability-config
     path: dev/gitops-operator-install-chart/cluster-observability-operator-chart
+  - application_name: cluster-monitoring-application
+    namespace: openshift-monitoring
+    project_name: cluster-reliability-config
+    path: dev/gitops-operator-install-chart/openshift-monitoring-chart
 
 
