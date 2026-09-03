@@ -26,6 +26,7 @@ app_group_param:
       - openshift-logging
       - openshift-operators-redhat
       - openshift-cluster-observability-operator
+      - openshift-monitoring
     cs_apiObject:
       - rg_name: ""
         rg_kind: Namespace
