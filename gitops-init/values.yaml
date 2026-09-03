@@ -20,6 +20,18 @@ app_group_param:
         rg_kind: LocalVolume
       - rg_name: ocs.openshift.io
         rg_kind: StorageCluster
+  cluster-security-config:
+    project_name: cluster-security-config
+    namespace: 
+      - cert-manager-operator
+    cs_apiObject:
+      - rg_name: ""
+        rg_kind: Namespace
+    ns_apiObject:
+      - rg_name: operators.coreos.com
+        rg_kind: OperatorGroup
+      - rg_name: operators.coreos.com
+        rg_kind: Subscription
   cluster-reliability-config:
     project_name: cluster-reliability-config
     namespace:
@@ -48,6 +60,8 @@ app_group_param:
     cs_apiObject:
       - rg_name: cilium.io
         rg_kind: CiliumConfig
+      - rg_name: cilium.io
+        rg_kind: CiliumClusterwideNetworkPolicy
 
 ### Below configuration is to create Application CR for argoCD, For ArgoCD to manage cluster resource of any scope
 ### We need to create Application CR which needs information about application name, project name, and 
@@ -83,5 +97,9 @@ applications:
     namespace: openshift-monitoring
     project_name: cluster-reliability-config
     path: dev/gitops-operator-install-chart/openshift-monitoring-chart
+  - application_name: cluster-security-application
+    namespace: cert-manager-operator
+    project_name: cluster-security-config
+    path: dev/gitops-operator-install-chart/cert-manager-chart
 
 
