@@ -3,13 +3,11 @@ repoURL: "https://github.com/eklovya-sharma-gruve/openshift-cluster-setup.git"
 #### this is variablization done for the templates of app-group.yaml, 
 #### for creating new app-project resources follow the below standard of putting variable values.
 app_group_param:
-  gitops-cluster-config:
-    project_name: gitops-cluster-config
+  cluster-storage-config:
+    project_name: cluster-storage-config
     namespace:
       - openshift-local-storage
       - openshift-storage
-      - openshift-logging
-      - openshift-operators-redhat
     cs_apiObject:
       - rg_name: ""
         rg_kind: Namespace
@@ -22,6 +20,19 @@ app_group_param:
         rg_kind: LocalVolume
       - rg_name: ocs.openshift.io
         rg_kind: StorageCluster
+  cluster-reliability-config:
+    project_name: cluster-reliability-config
+    namespace:
+      - openshift-logging
+      - openshift-operators-redhat
+    cs_apiObject:
+      - rg_name: ""
+        rg_kind: Namespace
+    ns_apiObject:
+      - rg_name: operators.coreos.com
+        rg_kind: OperatorGroup
+      - rg_name: operators.coreos.com
+        rg_kind: Subscription
       - rg_name: objectbucket.io
         rg_kind: ObjectBucketClaim
       - rg_name: loki.grafana.com
@@ -42,19 +53,19 @@ app_group_param:
 applications:
   - application_name: local-storage-application
     namespace: openshift-local-storage
-    project_name: gitops-cluster-config
+    project_name: cluster-storage-config
     path: dev/gitops-operator-install-chart/local-storage-operator-chart
   - application_name: odf-application
     namespace: openshift-storage
-    project_name: gitops-cluster-config
+    project_name: cluster-storage-config
     path: dev/gitops-operator-install-chart/odf-operator-chart
   - application_name: openshift-logging-application
     namespace: openshift-logging
-    project_name: gitops-cluster-config
+    project_name: cluster-reliability-config
     path: dev/gitops-operator-install-chart/logging-operator-chart
   - application_name: loki-application
     namespace: openshift-operators-redhat
-    project_name: gitops-cluster-config
+    project_name: cluster-reliability-config
     path: dev/gitops-operator-install-chart/loki-operator-chart
   - application_name: cluster-network-application
     namespace: cilium
