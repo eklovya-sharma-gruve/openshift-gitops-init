@@ -6,8 +6,8 @@ app_group_param:
   cluster-storage-config:
     project_name: cluster-storage-config
     namespace:
-      - openshift-local-storage
-      - openshift-storage
+      - "openshift-local-storage"
+      - "openshift-storage"
     cs_apiObject:
       - rg_name: ""
         rg_kind: Namespace
@@ -41,11 +41,11 @@ app_group_param:
   cluster-reliability-config:
     project_name: cluster-reliability-config
     namespace:
-      - openshift-logging
-      - openshift-operators-redhat
-      - openshift-cluster-observability-operator
-      - openshift-opentelemetry-operator
-      - openshift-monitoring
+      - "openshift-logging"
+      - "openshift-operators-redhat"
+      - "openshift-cluster-observability-operator"
+      - "openshift-opentelemetry-operator"
+      - "openshift-monitoring"
     cs_apiObject:
       - rg_name: ""
         rg_kind: Namespace
@@ -63,8 +63,8 @@ app_group_param:
   cluster-networking-config-group:
     project_name: cluster-networking-config-group
     namespace:
-      - cilium
-      - metallb-system
+      - "cilium"
+      - "metallb-system"
     cs_apiObject:
       - rg_name: cilium.io
         rg_kind: CiliumConfig
