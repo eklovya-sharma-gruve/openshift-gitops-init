@@ -23,10 +23,10 @@ app_group_param:
   cluster-security-config:
     project_name: cluster-security-config
     namespace: 
-      - cert-manager-operator
-      - openshift-compliance
-      - openshift-operators
-      - rhacs-operator
+      - "cert-manager-operator"
+      - "openshift-compliance"
+      - "openshift-operators"
+      - "rhacs-operator"
       - "*"
     cs_apiObject:
       - rg_name: ""
