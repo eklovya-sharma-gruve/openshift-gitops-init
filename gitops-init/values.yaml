@@ -98,7 +98,7 @@ applications:
     project_name: cluster-networking-config-group
     path: dev/gitops-operator-install-chart/metallb-operator-chart
   - application_name: quay-application
-    namespace: ""
+    namespace: "*"
     project_name: cluster-security-config
     path: dev/gitops-operator-install-chart/quay-operator-chart
   - application_name: cluster-security-application
@@ -110,7 +110,7 @@ applications:
     project_name: cluster-security-config
     path: dev/gitops-operator-install-chart/rhacs-operator-chart
   - application_name: oauth-application
-    namespace: ""
+    namespace: "*"
     project_name: cluster-security-config
     path: dev/gitops-operator-install-chart/identity-provider-chart
   - application_name: compliace-operator-application
