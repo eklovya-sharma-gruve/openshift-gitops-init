@@ -101,5 +101,9 @@ applications:
     namespace: cert-manager-operator
     project_name: cluster-security-config
     path: dev/gitops-operator-install-chart/cert-manager-chart
+  - application_name: rhacs-application
+    namespace: rhacs-operator
+    project_name: cluster-security-config
+    path: dev/gitops-operator-install-chart/rhacs-operator-chart
 
 
