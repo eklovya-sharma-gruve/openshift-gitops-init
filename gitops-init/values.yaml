@@ -24,9 +24,14 @@ app_group_param:
     project_name: cluster-security-config
     namespace: 
       - cert-manager-operator
+      - openshift-compliance
+      - openshift-operators
+      - rhacs-operator
     cs_apiObject:
       - rg_name: ""
         rg_kind: Namespace
+      - rg_name: config.openshift.io
+        rg_kind: OAuth
     ns_apiObject:
       - rg_name: operators.coreos.com
         rg_kind: OperatorGroup
@@ -38,6 +43,7 @@ app_group_param:
       - openshift-logging
       - openshift-operators-redhat
       - openshift-cluster-observability-operator
+      - openshift-opentelemetry-operator
       - openshift-monitoring
     cs_apiObject:
       - rg_name: ""
@@ -57,11 +63,17 @@ app_group_param:
     project_name: cluster-networking-config-group
     namespace:
       - cilium
+      - metallb-system
     cs_apiObject:
       - rg_name: cilium.io
         rg_kind: CiliumConfig
       - rg_name: cilium.io
         rg_kind: CiliumClusterwideNetworkPolicy
+    ns_apiObject:
+      - rg_name: operators.coreos.com
+        rg_kind: OperatorGroup
+      - rg_name: operators.coreos.com
+        rg_kind: Subscription
 
 ### Below configuration is to create Application CR for argoCD, For ArgoCD to manage cluster resource of any scope
 ### We need to create Application CR which needs information about application name, project name, and 
@@ -77,26 +89,22 @@ applications:
     namespace: openshift-storage
     project_name: cluster-storage-config
     path: dev/gitops-operator-install-chart/odf-operator-chart
-  - application_name: openshift-logging-application
-    namespace: openshift-logging
-    project_name: cluster-reliability-config
-    path: dev/gitops-operator-install-chart/logging-operator-chart
-  - application_name: loki-application
-    namespace: openshift-operators-redhat
-    project_name: cluster-reliability-config
-    path: dev/gitops-operator-install-chart/loki-operator-chart
   - application_name: cluster-network-application
     namespace: cilium
     project_name: cluster-networking-config-group
     path: dev/gitops-operator-install-chart/cilium-chart
-  - application_name: cluster-observability-application
-    namespace: openshift-cluster-observability-operator
-    project_name: cluster-reliability-config
-    path: dev/gitops-operator-install-chart/cluster-observability-operator-chart
-  - application_name: cluster-monitoring-application
-    namespace: openshift-monitoring
-    project_name: cluster-reliability-config
-    path: dev/gitops-operator-install-chart/openshift-monitoring-chart
+  - application_name: metallb-application
+    namespace: metallb-system
+    project_name: cluster-networking-config-group
+    path: dev/gitops-operator-install-chart/metallb-operator-chart
+  - application_name: quay-application
+    namespace: ""
+    project_name: cluster-security-config
+    path: dev/gitops-operator-install-chart/quay-operator-chart
+  - application_name: rhacs-application
+    namespace: ""
+    project_name: cluster-security-config
+    path: dev/gitops-operator-install-chart/rhacs-operator-chart
   - application_name: cluster-security-application
     namespace: cert-manager-operator
     project_name: cluster-security-config
@@ -105,5 +113,37 @@ applications:
     namespace: rhacs-operator
     project_name: cluster-security-config
     path: dev/gitops-operator-install-chart/rhacs-operator-chart
+  - application_name: oauth-application
+    namespace: ""
+    project_name: cluster-security-config
+    path: dev/gitops-operator-install-chart/identity-provider-chart
+  - application_name: compliace-operator-application
+    namespace: openshift-compliance
+    project_name: cluster-security-config
+    path: dev/gitops-operator-install-chart/compliance-operator-chart
+  - application_name: service-mesh-application
+    namespace: openshift-operators
+    project_name: cluster-security-config
+    path: dev/gitops-operator-install-chart/istio-operator-chart
+  - application_name: opentelemetry-application
+    namespace: openshift-opentelemetry-operator
+    project_name: cluster-reliability-config
+    path: dev/gitops-operator-install-chart/otel-operator-chart
+  - application_name: openshift-logging-application
+    namespace: openshift-logging
+    project_name: cluster-reliability-config
+    path: dev/gitops-operator-install-chart/logging-operator-chart
+  - application_name: loki-application
+    namespace: openshift-operators-redhat
+    project_name: cluster-reliability-config
+    path: dev/gitops-operator-install-chart/loki-operator-chart
+  - application_name: cluster-observability-application
+    namespace: openshift-cluster-observability-operator
+    project_name: cluster-reliability-config
+    path: dev/gitops-operator-install-chart/cluster-observability-operator-chart
+  - application_name: cluster-monitoring-application
+    namespace: openshift-monitoring
+    project_name: cluster-reliability-config
+    path: dev/gitops-operator-install-chart/openshift-monitoring-chart
 
 
