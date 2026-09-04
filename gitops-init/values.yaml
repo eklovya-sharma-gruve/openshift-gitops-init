@@ -101,10 +101,6 @@ applications:
     namespace: ""
     project_name: cluster-security-config
     path: dev/gitops-operator-install-chart/quay-operator-chart
-  - application_name: rhacs-application
-    namespace: ""
-    project_name: cluster-security-config
-    path: dev/gitops-operator-install-chart/rhacs-operator-chart
   - application_name: cluster-security-application
     namespace: cert-manager-operator
     project_name: cluster-security-config
