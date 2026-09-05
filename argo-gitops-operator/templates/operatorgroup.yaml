@@ -1,0 +1,18 @@
+{{- range .Values.operators }}
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  name: "{{ .operator_name }}-operatorgroup"
+  namespace: {{ .operator_namespace }}
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+    argocd.argoproj.io/sync-wave: "0"
+spec:
+{{ if .all_namespace_scope }}
+  {}
+{{ else }}
+  targetNamespaces:
+    - {{ .operator_namespace }}
+{{ end }}
+---
+{{ end }}

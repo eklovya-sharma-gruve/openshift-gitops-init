@@ -7,7 +7,7 @@ app_group_param:
   gitops-init:
     project_name: gitops-init
     namespace:
-      - openshift-gitops
+      - "openshift-gitops"
     apiObject:
       - rg_name: argoproj.io
         rg_kind: Application
@@ -16,7 +16,7 @@ app_group_param:
   gitops-cluster-config:
     project_name: gitops-init
     namespace:
-      - openshift-gitops
+      - "openshift-gitops"
     apiObject:
       - rg_name: argoproj.io
         rg_kind: Application

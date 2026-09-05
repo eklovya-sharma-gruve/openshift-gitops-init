@@ -1,0 +1,9 @@
+{{- range .Values.operators }}
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: {{ .operator_namespace }}
+  labels:
+    openshift.io/cluster-monitoring: "true"
+---
+{{ end }}
