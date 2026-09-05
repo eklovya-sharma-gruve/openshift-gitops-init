@@ -1,13 +1,13 @@
 applications:
   - application_name: gitops-first-instance
-    namespace: openshift-gitops
+    namespace: "openshift-gitops"
     project_name: gitops-init
     path: gitops-init/
 app_group_param:
   gitops-init:
     project_name: gitops-init
     namespace:
-      - "openshift-gitops"
+      - openshift-gitops
     cs_apiObject:
       - rg_name: ""
         rg_kind: Namespace
@@ -19,7 +19,7 @@ app_group_param:
   gitops-cluster-config:
     project_name: gitops-cluster-config
     namespace:
-      - "openshift-gitops"
+      - openshift-gitops
     cs_apiObject:
       - rg_name: ""
         rg_kind: Namespace

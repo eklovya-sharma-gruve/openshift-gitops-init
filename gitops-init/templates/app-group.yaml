@@ -2,25 +2,25 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: {{ $app_group_key }}
+  name: {{ $app_group_key | quote }}
   namespace: openshift-gitops
 spec:
   sourceRepos:
     - {{ $.Values.repoURL | quote }}
   destinations:
     {{- range $instances.namespace }}
-    - namespace: {{ . }}
+    - namespace: {{ . | quote }}
       server: https://kubernetes.default.svc
     {{- end }}
   clusterResourceWhitelist:
     {{- range $instances.cs_apiObject }}
     - group: {{ .rg_name | quote }}
-      kind: {{ .rg_kind }}
+      kind: {{ .rg_kind | quote }}
     {{- end }}
   namespaceResourceWhitelist:
     {{- range $instances.ns_apiObject }}
     - group: {{ .rg_name | quote }}
-      kind: {{ .rg_kind }}
+      kind: {{ .rg_kind | quote }}
     {{- end }}
 ---
 {{- end }}

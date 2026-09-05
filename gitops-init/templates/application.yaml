@@ -2,13 +2,13 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: {{ .application_name }}
+  name: {{ .application_name | quote }}
   namespace: openshift-gitops
 spec:
-  project: {{ .project_name }}
+  project: {{ .project_name | quote }}
   destination:
     server: https://kubernetes.default.svc
-    namespace: {{ .namespace }}
+    namespace: {{ .namespace | quote }}
   revisionHistoryLimit: 10
   source:
     repoURL: {{ $.Values.repoURL | quote }}
