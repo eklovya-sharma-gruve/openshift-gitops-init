@@ -8,6 +8,9 @@ app_group_param:
     project_name: gitops-init
     namespace:
       - "openshift-gitops"
+    cs_apiObject:
+      - rg_name: ""
+        rg_kind: Namespace
     ns_apiObject:
       - rg_name: argoproj.io
         rg_kind: Application
@@ -17,6 +20,9 @@ app_group_param:
     project_name: gitops-cluster-config
     namespace:
       - "openshift-gitops"
+    cs_apiObject:
+      - rg_name: ""
+        rg_kind: Namespace
     ns_apiObject:
       - rg_name: argoproj.io
         rg_kind: Application
