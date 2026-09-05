@@ -27,7 +27,7 @@ app_group_param:
       - openshift-compliance
       - openshift-operators
       - rhacs-operator
-      - '*'
+      - "*"
     cs_apiObject:
       - rg_name: ""
         rg_kind: Namespace
