@@ -8,7 +8,7 @@ spec:
   project: {{ .project_name }}
   destination:
     server: https://kubernetes.default.svc
-    namespace: '{{ .namespace | quote }}'
+    namespace: {{ .namespace }}
   revisionHistoryLimit: 10
   source:
     repoURL: {{ $.Values.repoURL | quote }}
