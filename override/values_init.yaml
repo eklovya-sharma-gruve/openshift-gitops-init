@@ -8,6 +8,8 @@ app_group_param:
         rg_kind: Namespace
       - rg_name: user.openshift.io
         rg_kind: Group
+      - rg_name: rbac.authorization.k8s.io
+        rg_kind: ClusterRoleBinding
     ns_apiObject:
       - rg_name: argoproj.io
         rg_kind: Application
