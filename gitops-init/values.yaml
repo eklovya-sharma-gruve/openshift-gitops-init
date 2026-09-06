@@ -89,6 +89,14 @@ app_group_param:
         rg_kind: OperatorGroup
       - rg_name: operators.coreos.com
         rg_kind: Subscription
+      - rg_name: ""
+        rg_kind: ConfigMap
+      - rg_name: ""
+        rg_kind: Secret
+      - rg_name: apps
+        rg_kind: Deployment
+      - rg_name: apps
+        rg_kind: Daemonset
 
 ### Below configuration is to create Application CR for argoCD, For ArgoCD to manage cluster resource of any scope
 ### We need to create Application CR which needs information about application name, project name, and 
