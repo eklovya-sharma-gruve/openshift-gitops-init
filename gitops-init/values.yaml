@@ -92,6 +92,12 @@ app_group_param:
       - rg_name: ""
         rg_kind: ConfigMap
       - rg_name: ""
+        rg_kind: Pod
+      - rg_name: ""
+        rg_kind: Service
+      - rg_name: route.openshift.io
+        rg_kind: Route
+      - rg_name: ""
         rg_kind: Secret
       - rg_name: apps
         rg_kind: Deployment
