@@ -36,6 +36,8 @@ app_group_param:
         rg_kind: LocalVolume
       - rg_name: ocs.openshift.io
         rg_kind: StorageCluster
+      - rg_name: lvm.topolvm.io
+        rg_kind: LVMCluster
   cluster-security-config:
     project_name: cluster-security-config
     namespace: 
