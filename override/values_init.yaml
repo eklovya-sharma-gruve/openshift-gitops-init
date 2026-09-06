@@ -1,8 +1,3 @@
-applications:
-  - application_name: gitops-first-instance
-    namespace: "openshift-gitops"
-    project_name: gitops-init
-    path: gitops-init/
 app_group_param:
   gitops-init:
     project_name: gitops-init
@@ -11,6 +6,8 @@ app_group_param:
     cs_apiObject:
       - rg_name: ""
         rg_kind: Namespace
+      - rg_name: user.openshift.io
+        rg_kind: Group
     ns_apiObject:
       - rg_name: argoproj.io
         rg_kind: Application
@@ -28,4 +25,10 @@ app_group_param:
         rg_kind: Application
       - rg_name: argoproj.io
         rg_kind: AppProject
+
+applications:
+  - application_name: gitops-first-instance
+    namespace: "openshift-gitops"
+    project_name: gitops-init
+    path: gitops-init/
 
