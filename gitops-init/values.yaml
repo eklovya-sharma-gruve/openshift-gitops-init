@@ -102,7 +102,7 @@ app_group_param:
       - rg_name: apps
         rg_kind: Deployment
       - rg_name: apps
-        rg_kind: Daemonset
+        rg_kind: DaemonSet
 
 ### Below configuration is to create Application CR for argoCD, For ArgoCD to manage cluster resource of any scope
 ### We need to create Application CR which needs information about application name, project name, and 
