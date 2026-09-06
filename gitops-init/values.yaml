@@ -38,6 +38,22 @@ app_group_param:
         rg_kind: StorageCluster
       - rg_name: lvm.topolvm.io
         rg_kind: LVMCluster
+      - rg_name: ""
+        rg_kind: ConfigMap
+      - rg_name: ""
+        rg_kind: Pod
+      - rg_name: ""
+        rg_kind: Service
+      - rg_name: route.openshift.io
+        rg_kind: Route
+      - rg_name: ""
+        rg_kind: Secret
+      - rg_name: apps
+        rg_kind: Deployment
+      - rg_name: apps
+        rg_kind: DaemonSet
+      - rg_name: apps
+        rg_kind: ReplicaSet
   cluster-security-config:
     project_name: cluster-security-config
     namespace: 
