@@ -1,5 +1,7 @@
 repoURL: "https://github.com/eklovya-sharma-gruve/openshift-cluster-setup.git"
 
+oc_user: ncadmin
+
 #### this is variablization done for the templates of app-group.yaml, 
 #### for creating new app-project resources follow the below standard of putting variable values.
 app_group_param:
