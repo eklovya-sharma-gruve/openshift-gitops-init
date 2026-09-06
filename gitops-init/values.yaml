@@ -136,6 +136,10 @@ applications:
     namespace: openshift-storage
     project_name: cluster-storage-config
     path: dev/cluster-storage/odf-operator-chart
+  - application_name: lvm-application
+    namespace: openshift-storage
+    project_name: cluster-storage-config
+    path: dev/cluster-storage/logical-volume-manager-chart
   - application_name: cluster-network-application
     namespace: cilium
     project_name: cluster-networking-config-group

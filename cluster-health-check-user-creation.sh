@@ -3,7 +3,6 @@ set -euo pipefail
 
 # Read required variables
 read -p "Cluster name: " CLUSTER_NAME
-read -p "Kubeconfig path: " KUBECONFIG_PATH
 read -s -p "Kubeadmin password: " KUBEADMIN_PASS
 echo
 
