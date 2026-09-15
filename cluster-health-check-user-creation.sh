@@ -65,8 +65,8 @@ echo "Let's create OAuth CR"
 read -p "Login title: " LOGIN_TITLE
 
 # Update OAuth CR
-sed -i "9s/name: .*/name: ${SECRET_NAME}/" .oauth-cr.yaml
-sed -i "11s/name: .*/name: ${LOGIN_TITLE}/" .oauth-cr.yaml
+sed -i "9s/name: .*/name: ${SECRET_NAME}/" oauth-cr.yaml
+sed -i "11s/name: .*/name: ${LOGIN_TITLE}/" oauth-cr.yaml
 
 # Apply OAuth CR
 oc apply -f .oauth-cr.yaml
