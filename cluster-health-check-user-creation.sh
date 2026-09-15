@@ -69,7 +69,7 @@ sed -i "9s/name: .*/name: ${SECRET_NAME}/" oauth-cr.yaml
 sed -i "11s/name: .*/name: ${LOGIN_TITLE}/" oauth-cr.yaml
 
 # Apply OAuth CR
-oc apply -f .oauth-cr.yaml
+oc apply -f oauth-cr.yaml
 
 echo "Giving user cluster-admin access"
 
