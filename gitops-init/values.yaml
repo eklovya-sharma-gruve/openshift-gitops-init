@@ -80,6 +80,7 @@ app_group_param:
       - openshift-cluster-observability-operator
       - openshift-opentelemetry-operator
       - openshift-monitoring
+      - openshift-operators
     cs_apiObject:
       - rg_name: ""
         rg_kind: Namespace
@@ -196,6 +197,10 @@ applications:
     namespace: openshift-opentelemetry-operator
     project_name: cluster-reliability-config
     path: dev/cluster-reliability/otel-operator-chart
+  - application_name: grafana-application
+    namespace: openshift-operators
+    project_name: cluster-reliability-config
+    path: dev/cluster-reliability/grafana-chart
   - application_name: openshift-logging-application
     namespace: openshift-logging
     project_name: cluster-reliability-config
