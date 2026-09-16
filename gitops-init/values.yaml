@@ -80,7 +80,7 @@ app_group_param:
       - openshift-cluster-observability-operator
       - openshift-opentelemetry-operator
       - openshift-monitoring
-      - openshift-operators
+      - grafana-operator
     cs_apiObject:
       - rg_name: ""
         rg_kind: Namespace
