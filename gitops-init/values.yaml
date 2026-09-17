@@ -151,6 +151,36 @@ app_group_param:
         rg_kind: DaemonSet
       - rg_name: apps
         rg_kind: ReplicaSet
+  cluster-rbac:
+      project_name: cluster-rbac
+      namespace: 
+        - grafana-operator
+      cs_apiObject:
+        - rg_name: ""
+          rg_kind: Namespace
+        - rg_name: rbac.authorization.k8s.io
+          rg_kind: ClusterRoleBinding
+        - rg_name: rbac.authorization.k8s.io
+          rg_kind: Role
+      ns_apiObject:
+        - rg_name: operators.coreos.com
+          rg_kind: OperatorGroup
+        - rg_name: ""
+          rg_kind: ServiceAccount
+  cluster-pipelines:
+      project_name: cluster-pipelines
+      namespace: 
+        - grafana-operator
+      cs_apiObject:
+        - rg_name: ""
+          rg_kind: Namespace
+        - rg_name: rbac.authorization.k8s.io
+          rg_kind: ClusterRoleBinding
+        - rg_name: rbac.authorization.k8s.io
+          rg_kind: Role
+      ns_apiObject:
+        - rg_name: batch
+          rg_kind: CronJob
 
 ### Below configuration is to create Application CR for argoCD, For ArgoCD to manage cluster resource of any scope
 ### We need to create Application CR which needs information about application name, project name, and 
@@ -226,5 +256,13 @@ applications:
     namespace: openshift-monitoring
     project_name: cluster-reliability-config
     path: dev/cluster-reliability/openshift-monitoring-chart
+  - application_name: cluster-rbac-application
+    namespace: grafana-operator
+    project_name: cluster-rbac
+    path: dev/cluster-rbac
+  - application_name: cluster-pipeline-application
+    namespace: grafana-operator
+    project_name: cluster-pipelines
+    path: dev/cluster-pipelines
 
 
