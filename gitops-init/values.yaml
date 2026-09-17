@@ -166,7 +166,7 @@ app_group_param:
         - rg_name: rbac.authorization.k8s.io
           rg_kind: Role
         - rg_name: rbac.authorization.k8s.io
-          rg_kind: ClusterRoleBinding
+          rg_kind: RoleBinding
   cluster-pipelines:
       project_name: cluster-pipelines
       namespace: 
