@@ -104,6 +104,10 @@ app_group_param:
         rg_kind: Route
       - rg_name: ""
         rg_kind: Secret
+      - rg_name: ""
+        rg_kind: ServiceAccount
+      - rg_name: rbac.authorization.k8s.io
+        rg_kind: ClusterRoleBinding
       - rg_name: apps
         rg_kind: Deployment
       - rg_name: apps
