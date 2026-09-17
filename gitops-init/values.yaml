@@ -112,6 +112,8 @@ app_group_param:
         rg_kind: ReplicaSet
       - rg_name: monitoring.coreos.com
         rg_kind: PrometheusRule
+      - rg_name: grafana.integreatly.org
+        rg_kind: Grafana
   cluster-networking-config-group:
     project_name: cluster-networking-config-group
     namespace:
