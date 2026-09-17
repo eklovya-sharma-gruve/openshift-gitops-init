@@ -120,6 +120,8 @@ app_group_param:
         rg_kind: Grafana
       - rg_name: grafana.integreatly.org
         rg_kind: GrafanaDatasource
+      - rg_name: grafana.integreatly.org
+        rg_kind: GrafanaDashboard
   cluster-networking-config-group:
     project_name: cluster-networking-config-group
     namespace:
