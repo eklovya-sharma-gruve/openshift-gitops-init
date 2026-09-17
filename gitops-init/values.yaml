@@ -158,8 +158,6 @@ app_group_param:
       cs_apiObject:
         - rg_name: ""
           rg_kind: Namespace
-        - rg_name: rbac.authorization.k8s.io
-          rg_kind: ClusterRoleBinding
       ns_apiObject:
         - rg_name: operators.coreos.com
           rg_kind: OperatorGroup
@@ -167,6 +165,8 @@ app_group_param:
           rg_kind: ServiceAccount
         - rg_name: rbac.authorization.k8s.io
           rg_kind: Role
+        - rg_name: rbac.authorization.k8s.io
+          rg_kind: ClusterRoleBinding
   cluster-pipelines:
       project_name: cluster-pipelines
       namespace: 
