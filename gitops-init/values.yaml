@@ -122,6 +122,8 @@ app_group_param:
         rg_kind: GrafanaDatasource
       - rg_name: grafana.integreatly.org
         rg_kind: GrafanaDashboard
+      - rg_name: networking.k8s.io
+        rg_kind: NetworkPolicy
   cluster-networking-config-group:
     project_name: cluster-networking-config-group
     namespace:
